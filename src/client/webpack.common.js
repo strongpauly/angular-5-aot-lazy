@@ -39,7 +39,7 @@ module.exports = {
         new webpack.ContextReplacementPlugin(
             // The (\\|\/) piece accounts for path separators in *nix and Windows
             /(.+)?angular(\\|\/)core(.+)?/,
-            helpers.root('./src/client/'), // location of your src
+            helpers.root('./src/client'), // location of your src
             {} // a map of your routes
         ),
         new webpack.optimize.CommonsChunkPlugin({

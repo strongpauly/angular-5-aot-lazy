@@ -162,8 +162,13 @@
     "webpack-merge": "^4.1.0"
   },
   "scripts": {
-    "webpack:aot": "webpack --progress --colors --config ./src/client/webpack.aot.js",
-    "webpack": "webpack --progress --colors --config ./src/client/webpack.dev.js"
+    "clean": "rmdir build /s /q && mkdir build",
+    "build:server": "cp -r src/server build/server",
+    "start:server": "node build/server/app.js",
+    "build:client:aot": "webpack --progress --colors --config ./src/client/webpack.aot.js",
+    "build:client:jit": "webpack --progress --colors --config ./src/client/webpack.dev.js",
+    "jit": "npm run clean && npm run build:server && npm run build:client:jit && npm run start:server",
+    "aot": "npm run clean && npm run build:server && npm run build:client:aot && npm run start:server"
   },
   "author": "Paul Potsides",
   "license": "MIT"
